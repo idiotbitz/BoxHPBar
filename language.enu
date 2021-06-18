@@ -9,3 +9,7 @@ NASHHPBARMNU_TITLE = "Nash's HP Bar Options";
 NASHHPBARMNU_ENABLE = "Enable";
 
 NASHHPBARMNU_HELPTEXT_ENABLE = "Enables HP bar.";
+
+NASHHPBARMNU_BOSSONLY = "Boss Only";
+
+NASHHPBARMNU_HELPTEXT_BOSSONLY = "Only shows HP bar for Bosses (and Players).";

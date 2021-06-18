@@ -33,6 +33,7 @@
 class NashHPBarHandler : EventHandler
 {
 	transient ui CVar cvEnableHPBar;
+	transient ui CVar cvBossOnly;
 	transient ui Actor prevAimTarget;
 	transient ui double healthBarAlpha;
 
@@ -98,6 +99,9 @@ class NashHPBarHandler : EventHandler
 	{
 		if (!cvEnableHPBar) cvEnableHPBar = CVar.GetCVar("nashhpbar_enable", players[consoleplayer]);
 		if (!cvEnableHPBar) ThrowAbortException("Cannot cache CVar \"nashhpbar_enable\"!");
+		
+		if (!cvBossOnly) cvBossOnly = CVar.GetCVar("nashhpbar_bossonly", players[consoleplayer]);
+		if (!cvBossOnly) ThrowAbortException("Cannot cache CVar \"nashhpbar_bossonly\"!");
 	}
 
 	//===========================================================================
@@ -188,6 +192,9 @@ class NashHPBarHandler : EventHandler
 
 			// fonts are invalid, cancel drawing
 			if (!fnt) return;
+			
+			// disable if target is boss and bossonly mode is on
+			if (cvBossOnly && cvBossOnly.GetBool() && !prevAimTarget.bBoss && !(prevAimTarget is "PlayerPawn")) return;
 
 			// retrieve target health
 			int health = prevAimTarget.Health;

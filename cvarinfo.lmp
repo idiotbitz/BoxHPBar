@@ -1,1 +1,2 @@
 user bool nashhpbar_enable = true;
+user bool nashhpbar_bossonly = false;
