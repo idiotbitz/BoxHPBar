@@ -13,3 +13,7 @@ NASHHPBARMNU_HELPTEXT_ENABLE = "Enables HP bar.";
 NASHHPBARMNU_BOSSONLY = "Boss Only";
 
 NASHHPBARMNU_HELPTEXT_BOSSONLY = "Only shows HP bar for Bosses (and Players).";
+
+NASHHPBARMNU_STYLE = "Style";
+
+NASHHPBARMNU_HELPTEXT_STYLE = "Changes the appearance of the HP bar.";

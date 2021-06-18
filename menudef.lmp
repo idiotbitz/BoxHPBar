@@ -12,6 +12,12 @@ AddOptionMenu "OptionsMenuSimple"
 	StaticText ""
 }
 
+OptionValue "NashHPBarStyle"
+{
+	0, "Simple"
+	1, "Box"
+}
+
 OptionMenu "NashHPBarOptionMenu"
 {
 	Class "NashHPBarOptionMenu"
@@ -22,4 +28,5 @@ OptionMenu "NashHPBarOptionMenu"
 
 	NashHPBarOption "$NASHHPBARMNU_ENABLE", "$NASHHPBARMNU_HELPTEXT_ENABLE", "nashhpbar_enable", "OnOff"
 	NashHPBarOption "$NASHHPBARMNU_BOSSONLY", "$NASHHPBARMNU_HELPTEXT_BOSSONLY", "nashhpbar_bossonly", "OnOff"
+	NashHPBarOption "$NASHHPBARMNU_STYLE", "$NASHHPBARMNU_HELPTEXT_STYLE", "nashhpbar_style", "NashHPBarStyle"
 }

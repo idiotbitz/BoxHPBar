@@ -34,6 +34,7 @@ class NashHPBarHandler : EventHandler
 {
 	transient ui CVar cvEnableHPBar;
 	transient ui CVar cvBossOnly;
+	transient ui CVar cvStyle;
 	transient ui Actor prevAimTarget;
 	transient ui double healthBarAlpha;
 
@@ -102,6 +103,9 @@ class NashHPBarHandler : EventHandler
 		
 		if (!cvBossOnly) cvBossOnly = CVar.GetCVar("nashhpbar_bossonly", players[consoleplayer]);
 		if (!cvBossOnly) ThrowAbortException("Cannot cache CVar \"nashhpbar_bossonly\"!");
+		
+		if (!cvStyle) cvStyle = CVar.GetCVar("nashhpbar_style", players[consoleplayer]);
+		if (!cvStyle) ThrowAbortException("Cannot cache CVar \"nashhpbar_style\"!");
 	}
 
 	//===========================================================================
@@ -208,9 +212,19 @@ class NashHPBarHandler : EventHandler
 			double baseYPos = (SmallFont.GetHeight() * scale) * con_notifylines;
 			baseYPos /= CleanYfac;
 			baseYPos += SmallFont.GetHeight();
+			
+			let brdTex = TexMan.CheckForTexture("graphics/simple/HBARBRD.png");
+			let bgTex = TexMan.CheckForTexture("graphics/simple/HBARBOT.png");
+			let barTex = TexMan.CheckForTexture("graphics/simple/HBARTOP.png");
+			
+			if (cvstyle && cvStyle.GetInt())
+			{
+				brdTex = TexMan.CheckForTexture("graphics/box/HBARBRD.png");
+				bgTex = TexMan.CheckForTexture("graphics/box/HBARBOT.png");
+				barTex = TexMan.CheckForTexture("graphics/box/HBARTOP.png");
+			}
 
 			// draw HP bar background and border
-			let brdTex = TexMan.CheckForTexture("graphics/HBARBRD.png");
 			if (brdTex.IsValid())
 			{
 				Vector2 brdTexSize = TexMan.GetScaledSize(brdTex);
@@ -222,7 +236,6 @@ class NashHPBarHandler : EventHandler
 					DTA_Alpha, healthBarAlpha);
 			}
 
-			let bgTex = TexMan.CheckForTexture("graphics/HBARBOT.png");
 			if (bgTex.IsValid())
 			{
 				Vector2 bgTexSize = TexMan.GetScaledSize(bgTex);
@@ -237,7 +250,6 @@ class NashHPBarHandler : EventHandler
 			String txt;
 
 			// draw health bar
-			let barTex = TexMan.CheckForTexture("graphics/HBARTOP.png");
 			if (barTex.IsValid())
 			{
 				Vector2 barTexSize = TexMan.GetScaledSize(barTex);
