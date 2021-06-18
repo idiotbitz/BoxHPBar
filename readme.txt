@@ -1,5 +1,11 @@
-(this is just a personal edit of the neato Nash's HP Bar mod to add some features that I want. -idiotbitz)
+this is just a personal edit of the neato Nash's HP Bar mod to add some features that I want.
+this version was intended to be used alongside another project I'm working on called "Box Party" (not yet released), see the link below if you wanna see that.
+https://forum.zdoom.org/viewtopic.php?f=19&t=71782
 
+-idiotbitz
+
+Original Description Below:
+------------------
 Nash's HP Bar v1.2
 ------------------
 
