@@ -1,3 +1,5 @@
+(this is just a personal edit of the neato Nash's HP Bar mod to add some features that I want. -idiotbitz)
+
 Nash's HP Bar v1.2
 ------------------
 
